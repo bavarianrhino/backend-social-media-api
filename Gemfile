@@ -19,6 +19,9 @@ gem 'pry', '~> 0.13.1'
 gem 'bootsnap', '>= 1.4.2', require: false
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
 gem 'rack-cors'
+# Loading spinner for seed data
+gem 'whirly'
+gem 'paint'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
