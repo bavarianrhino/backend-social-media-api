@@ -1,4 +1,4 @@
-class API::V1::UserController < ApplicationController
+class API::V1::UsersController < ApplicationController
 
     def index
         @users = User.all
@@ -44,9 +44,9 @@ class API::V1::UserController < ApplicationController
     
     private
     def user_params
+        # id,email,name,github_username,registered_at,created_at,updated_at
         # params.require(:user).permit(:name, :email, :user_id)
         # params.permit(:name, :email)
     end
 
-  end
 end
