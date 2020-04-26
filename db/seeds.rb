@@ -43,9 +43,24 @@ CSV.foreach(Rails.root.join('db/csv/comments.csv'), headers: true) do |row|
         user_id: row[1],
         post_id: row[2],
         message: row[3],
-        commented_at: row[4] 
+        commented_at: row[4],
         created_at: row[5],
         updated_at: row[6]
     })
     puts Comment
+end
+
+# Import Ratings
+CSV.foreach(Rails.root.join('db/csv/ratings.csv'), headers: true) do |row|
+  
+    Rating.create({
+        id: row[0],
+        user_id: row[1],
+        rater_id: row[2],
+        rating: row[3],
+        rated_at: row[4],
+        created_at: row[5],
+        updated_at: row[6]
+    })
+    puts Rating
 end
