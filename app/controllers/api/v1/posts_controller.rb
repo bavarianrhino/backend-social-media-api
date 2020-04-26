@@ -15,7 +15,6 @@ class API::V1::PostsController < ApplicationController
     def create
         @post = Post.new(post_params)
         if @post && @post.valid?
-            # logic to check and call github api before save
             @post.save
             render json: { post: @post }, status: :created
         else
