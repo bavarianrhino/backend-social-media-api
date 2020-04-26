@@ -34,3 +34,18 @@ CSV.foreach(Rails.root.join('db/csv/posts.csv'), headers: true) do |row|
     })
     puts Post
 end
+
+# Import Comments
+CSV.foreach(Rails.root.join('db/csv/comments.csv'), headers: true) do |row|
+  
+    Comment.create({
+        id: row[0],
+        user_id: row[1],
+        post_id: row[2],
+        message: row[3],
+        commented_at: row[4] 
+        created_at: row[5],
+        updated_at: row[6]
+    })
+    puts Comment
+end
