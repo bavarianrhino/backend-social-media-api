@@ -97,6 +97,7 @@ GEM
     nio4r (2.5.2)
     nokogiri (1.10.9)
       mini_portile2 (~> 2.4.0)
+    paint (2.2.0)
     pg (1.2.3)
     pry (0.13.1)
       coderay (~> 1.1)
@@ -171,9 +172,12 @@ GEM
     thread_safe (0.3.6)
     tzinfo (1.2.7)
       thread_safe (~> 0.1)
+    unicode-display_width (1.7.0)
     websocket-driver (0.7.1)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.4)
+    whirly (0.2.6)
+      unicode-display_width (~> 1.1)
     zeitwerk (2.3.0)
 
 PLATFORMS
@@ -184,6 +188,7 @@ DEPENDENCIES
   byebug
   httparty (~> 0.18.0)
   listen (>= 3.0.5, < 3.2)
+  paint
   pg (>= 0.18, < 2.0)
   pry (~> 0.13.1)
   puma (~> 4.1)
@@ -192,6 +197,7 @@ DEPENDENCIES
   rspec-rails (~> 4.0)
   spring
   spring-watcher-listen (~> 2.0.0)
+  whirly
 
 RUBY VERSION
    ruby 2.7.0p0
