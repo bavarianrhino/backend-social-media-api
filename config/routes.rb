@@ -9,7 +9,7 @@ Rails.application.routes.draw do
             resources :posts
             resources :comments
             resources :ratings
-            resources :comments
+            resources :logs
         end
     end
 end
