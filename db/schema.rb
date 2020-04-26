@@ -19,7 +19,7 @@ ActiveRecord::Schema.define(version: 2020_04_26_030634) do
     t.string "message"
     t.bigint "user_id", null: false
     t.bigint "post_id", null: false
-    t.datetime "comment_at"
+    t.datetime "commented_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["post_id"], name: "index_comments_on_post_id"

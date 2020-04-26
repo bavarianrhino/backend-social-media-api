@@ -6,7 +6,7 @@ Comment.destroy_all
 Rating.destroy_all
 
 # Import Users
-CSV.foreach(Rails.root.join('db/csv/users.csv'), options: { headers: true, liberal_parsing: true} ) do |row|
+CSV.foreach(Rails.root.join('db/csv/users.csv'), headers: true, liberal_parsing: true) do |row|
   
     User.create({
         id: row[0],
@@ -17,12 +17,11 @@ CSV.foreach(Rails.root.join('db/csv/users.csv'), options: { headers: true, liber
         created_at: row[5],
         updated_at: row[6]
     })
-    puts User
 end
 
 # Import Posts
-CSV.foreach(Rails.root.join('db/csv/posts.csv'), options: { headers: true, liberal_parsing: true} ) do |row|
-  
+CSV.foreach(Rails.root.join('db/csv/posts.csv'), headers: true, liberal_parsing: true) do |row|
+
     Post.create({
         id: row[0],
         title: row[1],
@@ -36,7 +35,7 @@ CSV.foreach(Rails.root.join('db/csv/posts.csv'), options: { headers: true, liber
 end
 
 # Import Comments
-CSV.foreach(Rails.root.join('db/csv/comments.csv'), options: { headers: true, liberal_parsing: true} ) do |row|
+CSV.foreach(Rails.root.join('db/csv/comments.csv'), headers: true, liberal_parsing: true) do |row|
   
     Comment.create({
         id: row[0],
@@ -51,7 +50,7 @@ CSV.foreach(Rails.root.join('db/csv/comments.csv'), options: { headers: true, li
 end
 
 # Import Ratings
-CSV.foreach(Rails.root.join('db/csv/ratings.csv'), options: { headers: true, liberal_parsing: true} ) do |row|
+CSV.foreach(Rails.root.join('db/csv/ratings.csv'), headers: true, liberal_parsing: true) do |row|
   
     Rating.create({
         id: row[0],
