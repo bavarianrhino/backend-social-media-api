@@ -1,14 +1,15 @@
 require "csv"
+# Spinner gem that gives the user a visual display that the database is seeding
 require "whirly"
 
-Whirly.start spinner: "pencil", color: true, status: "Destroying Seeds" do
+Whirly.start spinner: "bars", color: true, status: "Destroying Seeds" do
     User.destroy_all
     Post.destroy_all
     Comment.destroy_all
     Rating.destroy_all 
 end
 
-Whirly.start spinner: "pencil", color: true, status: "Seeding Users" do
+Whirly.start spinner: "bars", color: true, status: "Seeding Users" do
     # Import Users
     CSV.foreach(Rails.root.join('db/csv/users.csv'), headers: true, liberal_parsing: true) do |row|
     
@@ -21,10 +22,11 @@ Whirly.start spinner: "pencil", color: true, status: "Seeding Users" do
             created_at: row[5],
             updated_at: row[6]
         })
+
     end
 end
 
-Whirly.start spinner: "pencil", color: true, status: "Seeding Posts" do
+Whirly.start spinner: "bars", color: true, status: "Seeding Posts" do
     # Import Posts
     CSV.foreach(Rails.root.join('db/csv/posts.csv'), headers: true, liberal_parsing: true) do |row|
 
@@ -37,11 +39,11 @@ Whirly.start spinner: "pencil", color: true, status: "Seeding Posts" do
             created_at: row[5],
             updated_at: row[6]
         })
-        puts Post
+        
     end
 end
 
-Whirly.start spinner: "pencil", color: true, status: "Seeding Comments" do
+Whirly.start spinner: "bars", color: true, status: "Seeding Comments" do
     # Import Comments
     CSV.foreach(Rails.root.join('db/csv/comments.csv'), headers: true, liberal_parsing: true) do |row|
     
@@ -54,11 +56,11 @@ Whirly.start spinner: "pencil", color: true, status: "Seeding Comments" do
             created_at: row[5],
             updated_at: row[6]
         })
-        puts Comment
+        
     end
 end
 
-Whirly.start spinner: "pencil", color: true, status: "Seeding Ratings" do
+Whirly.start spinner: "bars", color: true, status: "Seeding Ratings" do
     # Import Ratings
     CSV.foreach(Rails.root.join('db/csv/ratings.csv'), headers: true, liberal_parsing: true) do |row|
     
@@ -71,6 +73,6 @@ Whirly.start spinner: "pencil", color: true, status: "Seeding Ratings" do
             created_at: row[5],
             updated_at: row[6]
         })
-        puts Rating
+        
     end
 end
