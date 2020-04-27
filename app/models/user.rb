@@ -9,9 +9,20 @@ class User < ApplicationRecord
 
     def user_average_rating
         if self.ratings.count > 0
-            self.ratings.map { |rating| rating.rating }.sum / self.ratings.count.to_f ).round(3)
+            ( self.ratings.map { |rating| rating.rating }.sum / self.ratings.count.to_f ).round(3)
         else
             0
+        end
+    end
+
+    def to_json
+        {
+            email: self.email,
+            name: self.name,
+            github_username: self.github_username,
+            registered_at: self.registered_at,
+            rating: self.user_average_rating
+        }
     end
 
     def github_logs
