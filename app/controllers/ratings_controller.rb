@@ -44,7 +44,7 @@ class RatingsController < ApplicationController
     private
     def rating_params
         # id,user_id,rater_id,rating,rated_at,created_at,updated_at
-        # params.require(:rating).permit(:rating, :rater_id)
+        params.require(:rating).permit(:rating, :rated_at, :user_id, :rater_id)
         # params.permit(:rating, :rater_id)
     end
     
