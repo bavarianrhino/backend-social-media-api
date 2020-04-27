@@ -9,6 +9,7 @@ class UsersController < ApplicationController
 
     def show
         @user = User.find(params[:id])
+        # @user.paginate(:page => params[:page], :per_page => 25)
         render json: @user.to_json
     end
 

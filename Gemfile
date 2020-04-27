@@ -11,8 +11,8 @@ gem 'pg', '>= 0.18', '< 2.0'
 gem 'puma', '~> 4.1'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 # gem 'jbuilder', '~> 2.7'
-# Use httparty to parse JSON API responses
-gem 'httparty', '~> 0.18.0'
+# Use rest-client to parse and query external APIs
+gem "rest-client"
 # IRB debuggin tool
 gem 'pry', '~> 0.13.1'
 # Reduces boot times through caching; required in config/boot.rb
@@ -22,6 +22,8 @@ gem 'bootsnap', '>= 1.4.2', require: false
 # Loading spinner for seed data
 gem 'whirly'
 gem 'paint'
+# Use to paginate results
+gem 'will_paginate'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
