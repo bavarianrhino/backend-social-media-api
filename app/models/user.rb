@@ -2,9 +2,11 @@ class User < ApplicationRecord
     has_many :posts, dependent: :destroy
     has_many :comments, dependent: :destroy
     has_many :ratings, dependent: :destroy
-    has_one :log, as: :loggable, dependent: :destroy
+    # has_one :log, as: :loggable, dependent: :destroy
+    has_many :logs
 
     after_save :user_average_rating
+    after_save :check_user_average
     after_save :create_github_logs
 
     def user_average_rating
@@ -15,14 +17,23 @@ class User < ApplicationRecord
         end
     end
 
+    def check_user_average
+        self.ratings.order(rated_at: :asc)
+    end
+
     def to_json
         {
             email: self.email,
             name: self.name,
             github_username: self.github_username,
             registered_at: self.registered_at,
-            rating: self.user_average_rating
+            rating: self.user_average_rating,
+            logs: self.logs.all_json
         }
+    end
+
+    def self.all_json
+        User.all.collect(&:to_json)
     end
 
     def create_github_logs

@@ -3,8 +3,8 @@ class UsersController < ApplicationController
     def index
         @users = User.all
         # Create model json helpers
-        # render json: @users.all_json
-        render json: @users
+        render json: @users.all_json
+        # render json: @users
     end
 
     def show
