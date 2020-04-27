@@ -7,14 +7,15 @@ class Rating < ApplicationRecord
 
     def create_log
         log = Log.new
-        log.description = "New 4 Star Rating! - Rater_id #{self.rater_id} rated User_id #{self.user_id}"
         log.type_of = "Rating"
+        log.description = "New 4 Star Rating! - #{self.rater} Rater_id #{self.rater_id} rated User_id #{self.user_id} with #{self.rating} Stars!"
+        log.rating = self.rating
         log.user_id = self.user_id
         log.loggable_id = self.id
         log.loggable_type = self.class.name
         log.posted_at = self.rated_at
         log.save
-        puts log
+        puts self.rater.name
     end
 
     def to_json
@@ -32,7 +33,6 @@ class Rating < ApplicationRecord
 
     def user_ratings
         user_ratings = Rating.all.map(&:to_json).select{ |r| r[:user_id] == self.user_id }
-        
     end
 
     def four_start_event?
@@ -42,7 +42,6 @@ class Rating < ApplicationRecord
         if (current_average_rating >= 4.0 && prev_average_rating < 4.0)
             self.create_log
         else
-            self.create_log
         end
     end
 end

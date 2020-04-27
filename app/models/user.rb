@@ -6,7 +6,6 @@ class User < ApplicationRecord
     has_many :logs
 
     after_save :user_average_rating
-    after_save :check_user_average
     after_save :create_github_logs
 
     def user_average_rating
