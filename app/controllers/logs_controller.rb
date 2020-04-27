@@ -14,8 +14,7 @@ class LogsController < ApplicationController
 
     def create
         @log = Log.new(log_params)
-        if @log && @log.valid?
-            @log.save
+        if @log.save
             render json: { log: @log }, status: :created
         else
             render json: { errors: @log.errors.full_messages }, status: :not_acceptable
@@ -43,7 +42,7 @@ class LogsController < ApplicationController
     
     private
     def log_params
-        
+        params.permit(:description, :type_of, :github_event_id, :posted_at, :rating, :loggable_type, :loggable_id, :user_id)
     end
 
 end

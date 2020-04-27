@@ -5,7 +5,7 @@ class User < ApplicationRecord
     has_one :log, as: :loggable, dependent: :destroy
 
     after_save :user_average_rating
-    after_save :create_github_log
+    after_save :create_github_logs
 
     def user_average_rating
         if self.ratings.count > 0
@@ -25,7 +25,7 @@ class User < ApplicationRecord
         }
     end
 
-    def github_logs
+    def create_github_logs
         # if (self.github_username != nil)
     end
 end
