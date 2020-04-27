@@ -1,4 +1,4 @@
-class API::V1::UsersController < ApplicationController
+class UsersController < ApplicationController
 
     def index
         @users = User.all
@@ -15,7 +15,6 @@ class API::V1::UsersController < ApplicationController
     def create
         @user = User.new(user_params)
         if @user && @user.valid?
-            # logic to check and call github api before save
             @user.save
             render json: { user: @user }, status: :created
         else
@@ -44,9 +43,9 @@ class API::V1::UsersController < ApplicationController
     
     private
     def user_params
-        # id,email,name,github_username,registered_at,created_at,updated_at
-        # params.require(:user).permit(:name, :email, :user_id)
-        # params.permit(:name, :email)
+        # id,user_id,rater_id,user,rated_at,created_at,updated_at
+        # params.require(:user).permit(:user, :rater_id)
+        # params.permit(:user, :rater_id)
     end
-
+    
 end

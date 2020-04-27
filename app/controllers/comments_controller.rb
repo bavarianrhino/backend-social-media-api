@@ -1,4 +1,4 @@
-class API::V1::CommentsController < ApplicationController
+class CommentsController < ApplicationController
 
     def index
         @comments = Comment.all

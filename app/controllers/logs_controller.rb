@@ -1,4 +1,4 @@
-class API::V1::LogsController < ApplicationController
+class LogsController < ApplicationController
 
     def index
         @logs = Log.all

@@ -1,4 +1,4 @@
-class API::V1::RatingsController < ApplicationController
+class RatingsController < ApplicationController
 
     def index
         @ratings = Rating.all
