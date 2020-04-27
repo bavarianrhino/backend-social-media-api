@@ -43,9 +43,7 @@ class UsersController < ApplicationController
     
     private
     def user_params
-        # id,user_id,rater_id,user,rated_at,created_at,updated_at
-        # params.require(:user).permit(:user, :rater_id)
-        # params.permit(:name, )
+        params.require(:user).permit(:name, :email, :github_username, :registered_at)
     end
     
 end
