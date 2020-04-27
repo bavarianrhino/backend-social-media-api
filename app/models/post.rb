@@ -7,8 +7,8 @@ class Post < ApplicationRecord
 
     def create_log
         log = Log.new
-        log.description = "New Post #{self.title}"
         log.type_of = "Post"
+        log.description = "New Post - #{self.title}"
         log.user_id = self.user_id
         log.loggable_id = self.id
         log.loggable_type = self.class.name
@@ -22,6 +22,8 @@ class Post < ApplicationRecord
             title: self.title,
             body: self.body,
             user_id: self.user_id,
+            posted_at: self.posted_at
+            comment_count: self.comments.count
             comments: self.comments.all_json
         }
     end

@@ -33,6 +33,20 @@ class User < ApplicationRecord
     end
 
     def create_github_logs
-        # if (self.github_username != nil)
-    end
+        if (self.github_username != nil)
+            base_url = "https://api.github.com/users/#{self.github_username}/events"
+            begin
+                response = RestClient.get(base_url)
+                puts JSON.parse(response)
+            rescue RestClient::ExceptionWithResponse => err
+                []
+            else
+                events = JSON.parse(response).select do |event|
+                    (["PushEvent", "CreateEvent"].include? (event["type"]))
+                end
+                puts events
+            end
+        else
+        end
+    def
 end
