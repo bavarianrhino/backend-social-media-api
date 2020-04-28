@@ -24,8 +24,8 @@ class User < ApplicationRecord
             registered_at: self.registered_at,
             rating: self.user_average_rating,
             github: self.create_github_logs,
-            logs: self.logs.all_json,
-            ratings: self.ratings.all_json
+            ratings: self.ratings.all_json,
+            logs: self.logs.all_json
         }
     end
 

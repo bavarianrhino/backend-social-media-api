@@ -2,6 +2,8 @@ Rails.application.routes.draw do
     # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
     # Created namespaces for integration of future api versions.
     # Also, for early stage development I open up all routes for debugging purposes.
+    get '/timeline/:id', to: 'users#show'
+    # get '/posts/:id', to: 'posts#show'
     resources :users
     resources :posts
     resources :comments
