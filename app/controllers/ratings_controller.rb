@@ -4,12 +4,12 @@ class RatingsController < ApplicationController
         @ratings = Rating.all
         # Create model json helpers
         # render json: @ratings.all_json
-        render json: @ratings
+        render json: @ratings.user_ratings
     end
 
     def show
         @rating = Rating.find(params[:id])
-        render json: @rating
+        render json: @rating.user_ratings
     end
 
     def create

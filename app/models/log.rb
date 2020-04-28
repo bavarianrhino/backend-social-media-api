@@ -4,11 +4,11 @@ class Log < ApplicationRecord
 
     def to_json
         {
-            description: self.description,
             type_of: self.type_of,
-            posted_at: self.posted_at,
+            description: self.description,
             loggable_type: self.loggable_type,
             loggable_id: self.loggable_id,
+            posted_at: self.posted_at,
             created_at: self.created_at,
             updated_at: self.updated_at,
             user_id: self.user_id

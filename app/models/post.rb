@@ -22,8 +22,8 @@ class Post < ApplicationRecord
             title: self.title,
             body: self.body,
             user_id: self.user_id,
-            posted_at: self.posted_at
-            comment_count: self.comments.count
+            posted_at: self.posted_at,
+            comment_count: self.comments.count,
             comments: self.comments.all_json
         }
     end

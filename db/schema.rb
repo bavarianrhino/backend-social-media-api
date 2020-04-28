@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_26_030634) do
+ActiveRecord::Schema.define(version: 2020_04_27_222817) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -29,7 +29,7 @@ ActiveRecord::Schema.define(version: 2020_04_26_030634) do
   create_table "logs", force: :cascade do |t|
     t.string "description"
     t.string "type_of"
-    t.integer "github_event_id"
+    t.bigint "github_event_id"
     t.datetime "posted_at"
     t.decimal "rating"
     t.string "loggable_type"
